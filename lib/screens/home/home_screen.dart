@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:food_app/screens/explore/explore_screen.dart';
+import 'package:food_app/screens/order/order_screen.dart';
+import 'package:food_app/screens/profile/profile_screen.dart';
 import 'package:food_app/widgets/home_widgets/header_bar.dart';
 import 'package:food_app/widgets/home_widgets/item_options_widget.dart';
 import 'package:food_app/widgets/home_widgets/slider_options_food.dart';
+import 'package:food_app/widgets/home_widgets/store_widget.dart';
 import 'package:food_app/widgets/home_widgets/top_rank_widget.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,7 +17,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int pageAtual = 0;
+  int page = 0;
 
   final List<Widget> telas = [
     Column(
@@ -28,13 +33,13 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Colors.grey[100],
           ),
         ),
-        const Store(),
+        const StoreWidget(),
       ],
     ),
     // páginas aqui
-    const ExplorePage(),
-    const OrderPage(),
-    const ProfillePage(),
+    const ExploreScreen(),
+    const OrderScreen(),
+    const ProfileScreen(),
   ];
 
   @override
@@ -50,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: ListView(
         physics: const BouncingScrollPhysics(),
-        children: [telas[pageAtual]],
+        children: [telas[page]],
       ),
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
@@ -69,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           child: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
-            currentIndex: pageAtual,
+            currentIndex: page,
             selectedItemColor: Colors.black,
             unselectedItemColor: Colors.grey,
             selectedLabelStyle:
@@ -80,35 +85,35 @@ class _HomeScreenState extends State<HomeScreen> {
             onTap: (int index) {
               Future.delayed(const Duration(milliseconds: 100), () {
                 setState(() {
-                  pageAtual = index;
+                  page = index;
                 });
               });
             },
             items: [
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
-                  'lib/src/assets/icons/home.svg',
+                  'assets/images/home.svg',
                   height: 23,
                 ),
                 label: 'Inicio',
               ),
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
-                  'lib/src/assets/icons/search.svg',
+                  'assets/images/search.svg',
                   height: 23,
                 ),
                 label: 'Busca',
               ),
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
-                  'lib/src/assets/icons/clipboard.svg',
+                  'assets/images/clipboard.svg',
                   height: 23.5,
                 ),
                 label: 'Pedidos',
               ),
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
-                  'lib/src/assets/icons/user.svg',
+                  'assets/images/user.svg',
                   height: 23,
                 ),
                 label: 'Perfil',

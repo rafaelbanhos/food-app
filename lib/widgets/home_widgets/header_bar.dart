@@ -24,7 +24,7 @@ class _HeaderBarState extends State<HeaderBar> {
               children: [
                 GestureDetector(
                   child: SvgPicture.asset(
-                    'lib/src/assets/icons/location-indicator-red.svg',
+                    'assets/images/location-indicator-red.svg',
                     color: Colors.blue,
                     height: 35,
                   ),
@@ -35,7 +35,7 @@ class _HeaderBarState extends State<HeaderBar> {
                 ),
                 const SizedBox(width: 3),
                 SvgPicture.asset(
-                  'lib/src/assets/icons/arrow-down.svg',
+                  'assets/images/arrow-down.svg',
                   height: 20,
                   color: Colors.blue,
                 ),
@@ -43,7 +43,7 @@ class _HeaderBarState extends State<HeaderBar> {
             ),
             GestureDetector(
               child: SvgPicture.asset(
-                'lib/src/assets/icons/notification.svg',
+                'assets/images/notification.svg',
                 height: 25,
                 color: Colors.blue,
               ),

@@ -12,25 +12,25 @@ class _ItemOptionsWidgetState extends State<ItemOptionsWidget> {
   final List<Map<dynamic, dynamic>> listOptions = [
     {
       'title': 'Restaurantes',
-      'icon': SvgPicture.asset(''),
+      'icon': SvgPicture.asset('assets/images/'),
     },
     {
       'title': 'Mercados',
       'icon': SvgPicture.asset(
-        '',
+        'assets/images/',
         color: Colors.red,
       ),
     },
     {
       'title': 'Farmácias',
       'icon': SvgPicture.asset(
-        '',
+        'assets/images/',
         color: Colors.orange,
       ),
     },
     {
       'title': 'Bebidas',
-      'icon': SvgPicture.asset(''),
+      'icon': SvgPicture.asset('assets/images/'),
     },
   ];
 
@@ -67,7 +67,10 @@ class _ItemOptionsWidgetState extends State<ItemOptionsWidget> {
                             child: listOptions[index]['icon'],
                           ),
                           const SizedBox(height: 5),
-                          Text(listOptions[index]['title'], style: const TextStyle(fontWeight: FontWeight.w500),),
+                          Text(
+                            listOptions[index]['title'],
+                            style: const TextStyle(fontWeight: FontWeight.w500),
+                          ),
                         ],
                       ),
                     ),
